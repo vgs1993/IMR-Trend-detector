@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Metrics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Product Metrics Dashboard</h1>
+            <p>Monitor your product performance trends over the past 2 months</p>
+        </header>
+
+        <div class="controls">
+            <div class="file-upload-container">
+                <label for="excelFile">Upload Excel Data File:</label>
+                <input type="file" id="excelFile" accept=".xlsx,.xls,.csv" />
+                <button id="loadDataBtn" class="load-btn" disabled>Load Data</button>
+            </div>
+
+            <div class="dropdown-container">
+                <label for="productSelect">Select Product:</label>
+                <select id="productSelect" disabled>
+                    <option value="">Choose a product...</option>
+                </select>
+            </div>
+
+            <div class="dropdown-container">
+                <label for="metricSelect">Select Metric:</label>
+                <select id="metricSelect" disabled>
+                    <option value="">Choose a metric...</option>
+                </select>
+            </div>
+
+            <button id="refreshBtn" class="refresh-btn" disabled>Refresh Data</button>
+            
+            <button id="aiAnalysisBtn" class="ai-analysis-btn" disabled>🤖 AI Analysis</button>
+        </div>
+
+        <div class="dashboard">
+            <div class="chart-container">
+                <canvas id="metricsChart"></canvas>
+            </div>
+        </div>
+
+            <div class="data-info" id="dataInfo" style="display: none;">
+                <h3>📊 Data Information</h3>
+                <div id="dataDetails"></div>
+            </div>
+
+            <div class="ai-analysis-section" id="aiAnalysisSection" style="display: none;">
+                <h3>🤖 AI Analysis Results</h3>
+                <div class="analysis-content">
+                    <div class="loading-spinner" id="analysisLoading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing trends and correlating with system updates...</p>
+                    </div>
+                    <div id="analysisResults"></div>
+                </div>
+            </div>
+        </div>    <script src="script.js"></script>
+</body>
+</html>
